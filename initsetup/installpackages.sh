@@ -13,6 +13,7 @@ sudo ufw allow 'Nginx HTTPS'
 sudo ufw status
 
 
+rm /etc/nginx/sites-enabled/*
 sudo apt-get update
 sudo apt-get install software-properties-common
 sudo add-apt-repository universe
@@ -30,17 +31,14 @@ cd /usr/local/sbin/
 sudo ./setup-ngxblocker -x
 
 
-rm /etc/nginx/sites-enabled/*
-
-
-
-sudo apt-get purge php libapache2-mod-php
-
-
-sudo apt-get install php-fpm php-mysql
 
 apt-get update && apt-get install -y zlib1g-dev bzip2
 
+#WE HAVE TO ADD MANUALL THIS INSIDE /ETC/NGINX/NGINX.CONF
+#client_max_body_size 100M;
+
+#I HAVE TO COMMENT THIS LINE INSIDE vim /etc/nginx/conf.d/botblocker-nginx-settings.conf
+#server_names_hash_bucket_size 128;
 
 
 
